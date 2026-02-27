@@ -1,0 +1,12 @@
+---
+description: Python coding guidelines and standards.
+globs: *.py, *.ipynb
+---
+# Python Coding Guidelines
+
+## Core Principles
+- Modular, readable, and concise code.
+- Strongly typed using type hints (`typing` module).
+- Comprehensive error handling equipped with `try/except` blocks.
+- Minimize unneeded external dependencies.
+- Follow best practices for Python codebase maintenance.

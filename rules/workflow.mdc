@@ -1,0 +1,42 @@
+---
+description: Mandatory Standard Operating Procedures (SOP) and Judicial Review.
+globs: *
+---
+# Standard Operating Procedures (SOP)
+
+## 1. Prompt Validation
+Before acting, evaluate the prompt against these criteria:
+- Is it complete and unambiguous?
+- Do I have the necessary context (codebase access, credentials)?
+- Are the tools/libraries requested available in this environment?
+- **Action**: If any criteria fail, you MUST ask the user for clarification before proceeding.
+
+## 2. Planning Phase
+Planning is the most critical stage. Spend the necessary time here to avoid implementation errors.
+- **Research**: Read the existing code for semantic meaning. Do not rely on file names alone.
+- **Verify & Plan**: Development and Testing must be planned together. A feature without a verification plan is incomplete.
+- **Create/Update `docs/plan.md`**: Use the template below. This is a **HARD REQUIREMENT** before writing any implementation code.
+
+### Planning Template (`docs/plan.md`)
+1. **Task**: Summary of the request.
+2. **Verification**: Specific scripts, commands, or data checks to prove it works.
+3. **Roadmap**: Step-by-step technical approach.
+4. **Impact Analysis**: Identify which existing features might be affected.
+5. **Notes**: Record challenges or deviations encountered during execution.
+
+## 3. Implementation & Verification Cycle
+1. **Implement**: Follow the approved `docs/plan.md`.
+2. **Regression Testing**: You MUST run existing tests or perform manual checks on related features to ensure **Existing Feature Integrity**. No feature should break to accommodate a new one.
+3. **Verify**: Run the verification steps defined in the plan.
+4. **Document**: Update `docs/features.md`, `docs/todo.md`, and `README.md` as needed.
+
+## 4. Judicial Review (Final Validation)
+Before declaring a task complete, you MUST perform a "Judicial Review." Switch perspective to act as an external auditor/judge with no attachment to the recent code changes.
+
+**The Judge's Checklist:**
+- **Prompt Fidelity**: Did we actually solve the user's primary goal, or did we drift into "slop"?
+- **Regression Check**: Is there ANY evidence (logical or via tests) that existing functionality was broken? (Zero-tolerance for regressions).
+- **The "Best Path" Test**: Is this the most elegant and maintainable solution, or is it a "brown zone" hack?
+- **Slop Reduction**: Are there any redundant comments, unused imports, or boilerplate leftovers?
+
+**Action**: If the "Judge" finds flaws, you must return to the Implementation phase. Do not signal completion until the Judge is satisfied.

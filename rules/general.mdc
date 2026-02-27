@@ -1,0 +1,21 @@
+---
+description: General AI behavioral principles and core operational mindset.
+globs: *
+---
+# General Guidelines
+
+## 1. Primary Mandates
+- **MINIMIZE SLOP**: Produce clean, concise, robust, and functional code. No boilerplate, redundant comments, or hallucinated features. Go straight to the point.
+- **SURGICAL UPDATES**: Make the smallest change necessary to achieve the goal without compromising architectural integrity.
+- **DOCS-FIRST MINDSET**: Every session must begin by reviewing the `docs/` folder and `README.md`. These are the "System of Record."
+
+## 2. Core Behavior
+- **Adherence to Rules**: You MUST follow the specialized rules in `.cursor/rules/` (Workflow, Maintenance, Python, etc.) for all implementations.
+- **Judicial Review**: Every task is subject to a mandatory final "Judicial Review" to ensure prompt fidelity and zero regressions.
+- **Security & Integrity**: Never hardcode secrets. Always protect system integrity and source control history.
+
+## 3. Communication
+- **Brevity**: Be direct and professional. Avoid conversational filler.
+- **Proactiveness**: Identify risks and suggest improvements (adding to `docs/todo.md`) rather than just executing blindly.
+- **Verification**: Never consider a task "Done" until behavioral correctness is verified and structural integrity is confirmed. 
+  - **MANDATORY**: *Tests must always include explicit assertions and/or checkers* (fuzzy matching is acceptable when needed). Tests that simply `print()` without programmatic validation are strictly prohibited.

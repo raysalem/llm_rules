@@ -1,0 +1,26 @@
+---
+description: Repository documentation structure requirements.
+globs: *
+---
+# Repository Documentation Structure
+
+## Segregation of Rules vs. Project State
+- `.cursor/rules/` defines **HOW** the AI behaves (logic, style, constraints).
+- `docs/` contains **WHAT** the project is (state, architecture, roadmap). 
+- Never store session-specific state in the rules folder.
+
+## Required Documents
+The following structure is the project's "Long-Term Memory." All docs MUST live in the `docs/` folder (except the root `README.md`).
+
+1. `README.md` (Root) - High-level overview of the project, setup instructions, and quick start guide.
+2. `docs/detailed.md` - In-depth technical architecture, data flow, and complex logic (e.g., anti-bot strategies). should leverage the source folder details files and avoid overlap. shoudl use links accordingly.
+3. `docs/features.md` - list of existing features plus the asociated verifcation for each said feature. critical succinct list to be used for future development
+4. `docs/todo.md` - Active bug list, technical debt, and future enhancements. can also include pending features. needs tracking 
+5. `docs/plan.md` - **Mandatory** active execution plan for the current task.
+6. `docs/requirements.md` - Third-party dependencies, system requirements, and environment setup details.
+
+## Doc Maintenance Rules
+- **Consistency**: Keep `README.md` in sync with `docs/features.md`.
+- **heiachry**: all source folder should have a top level details.md file that gives a high level overview of the folder and its contents. the name shoudl be the name of the parent folder. 
+- **SOP Adherence**: Every session begins by reading the `docs/` folder and `README.md`.
+- **Updates**: Every completed task must conclude with an update to the relevant documentation files.

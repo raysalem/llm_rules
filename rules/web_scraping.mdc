@@ -1,0 +1,11 @@
+---
+description: Web parsing and scraping guidelines.
+globs: *.py, *.ipynb
+---
+# Web Scraping Guidelines
+
+## Best Practices
+- **Tools**: Prefer Beautiful Soup, Scrapy, Selenium, Playwright, or Requests based on the task complexity.
+- **Robustness**: Build resiliency. Implement request rate-limiting and backoff strategies to avoid IP bans (e.g., 1 request per second minimum).
+- **Edge Cases**: Always address handling for Cloudflare/bot protection mechanisms and complex navigation logic (like pagination). 
+- **Parsing**: Handle DOM changes gracefully with explicit data validation and checks on scraped items before passing them to the pipeline.

@@ -1,0 +1,21 @@
+---
+description: Rules for "Brown Zone" maintenance and handling existing/complex codebases.
+globs: *
+---
+# Brown Zone Maintenance
+In "Brown Zone" projects (existing, messy, or high-risk codebases), the AI must adopt a "Leave it better than you found it" approach:
+
+## 1. Principles
+- **Strict Isolation**: When fixing a bug or adding a feature, isolate changes to prevent cascading failures.
+- **Micro-Refactoring**: Identify and clean up small amounts of technical debt *only* in the immediate area of your changes. Do not perform global refactors unless explicitly asked.
+- **Impact Analysis**: Before modifying a shared utility or base class, search the entire repo to identify all dependent modules.
+
+## 2. Risk Mitigation
+- **Identify Affected Areas**: Specifically document in `docs/plan.md` which legacy features might be at risk.
+- **Pre-Implementation Check**: Before modifying, read related legacy code to ensure you understand side-effects.
+- **Incremental Changes**: Prefer small, atomic commits/changes over large, sweeping updates.
+- **Zero Regression Policy**: The Judicial Review MUST include a regression check for all identified high-risk areas.
+
+## 3. Slop Control
+- **No Refactor Creep**: If you see a major refactoring opportunity outside the scope of the current prompt, add it to `docs/todo.md` instead of acting on it.
+- **Clean Documentation**: Ensure that all legacy areas you touch are documented in `docs/detailed.md`.
